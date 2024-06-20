@@ -9,12 +9,12 @@ const Navbar = () => {
           </span>
         </a>
         <a
-          href="https://github.com/adityakkpk"
+          href="https://github.com/adityakkpk/React-News-App"
           className="block py-1 px-3 text-slate-200 text-lg rounded dark:text-whilte bg-sky-800 border border-blue-700 hover:bg-sky-400 hover:text-slate-900 duration-200"
           aria-current="page"
           target="_blank"
         >
-          Fork
+          Code {'</>'}
         </a>
       </div>
     </nav>
