@@ -1,19 +1,9 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
-import fetchNews from "../Hooks/FetchNews";
 
 const Pagination = ({news}) => {
-  const [generalData, setGeneralData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchNews('general');
-      setGeneralData(data);
-    }
-    fetchData();
-  },[])
-
-  const items = news.length === 0 ? generalData : news;
+  const items = news;
   
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1); // initial page
@@ -26,8 +16,6 @@ const Pagination = ({news}) => {
   const onPageChange = (page) => {
     setCurrentPage(page);
   };
-
-  
 
   return (
     <div className="flex flex-col justify-center items-center">

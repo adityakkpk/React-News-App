@@ -1,12 +1,24 @@
 import { useState } from 'react'
-import Hero from './Components/Hero'
+import useFetchNews from './Hooks/useFetchNews';
+import SelectCategory from './Components/SelectCategory';
+import Pagination from './Components/Pagination';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [selectedCategory, setSelectedCategory] = useState("Select");
+  const res = useFetchNews(selectedCategory);
+
+  const handleCategoryChange = (event) => {
+    const category = event.target.value;
+    setSelectedCategory(category);
+  };
+
+  const categoryPass = selectedCategory;
 
   return (
     <>
-      <Hero />
+      <SelectCategory value={categoryPass} onChange={handleCategoryChange} />
+      <Pagination news={res} />
     </>
   )
 }
